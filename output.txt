@@ -1,0 +1,27 @@
+[admin@MikroTik] > /interface wireless print
+Flags: X - disabled, R - running 
+ 0    name="wlan1" mtu=1500 l2mtu=1600 mac-address=74:4D:28:E3:A8:9B arp=enabled interface-type=Atheros AR9300 mode=ap-bridge ssid="MikroTik-E3A89B" frequency=auto band=2ghz-b/g/n channel-width=20/40mhz-XX secondary-channel="" scan-list=default
+      wireless-protocol=any vlan-mode=no-tag vlan-id=1 wds-mode=disabled wds-default-bridge=none wds-ignore-ssid=no bridge-mode=enabled default-authentication=yes default-forwarding=yes default-ap-tx-limit=0 default-client-tx-limit=0 hide-ssid=no 
+      security-profile=default compression=no 
+
+[admin@MikroTik] > /interface wireless scan wlan1
+Flags: A - active, P - privacy, R - routeros-network, N - nstreme, T - tdma, W - wds, B - bridge
+       ADDRESS           SSID                                             CHANNEL                                            SIG   NF SNR RADIO-NAME                                            ROUTEROS-VERSION
+AP     DC:E3:05:28:32:01 WiFi-DOM.ru-8668                                 2412/20-Ce/gn                                      -30 -115  85
+AP     A0:AB:1B:05:C6:31 MTSRouter-05C631                                 2412/20/gn                                         -93 -115  22
+AP     D4:60:E3:E1:FC:CE Beeline_2G_FF243F                                2417/20-Ce/gn                                      -86 -119  33
+AP     E0:60:66:29:2C:30 Beeline_2G_F11797                                2417/20-Ce/gn                                      -82 -119  37
+AP     74:44:01:94:5A:1E WiFi-DOM.RU-9124                                 2417/20/gn                                         -86 -119  33
+AP     34:CE:00:59:E3:5B k94                                              2437/20/gn                                         -92 -113  21
+AP     90:F6:52:78:DF:0D                                                  2442/20-eC/gn                                      -82 -113  31
+AP     E0:0E:E4:D0:F1:3C Beeline_2G_F39145                                2457/20-eC/gn                                      -76 -116  40
+AP     CC:2D:21:23:75:E1 LOL                                              2457/20/gn                                         -84 -116  32
+AP     10:FE:ED:7F:C9:B4 internet48                                       2462/20-eC/gn                                      -81 -118  37
+AP     08:C6:B3:B8:2D:D1 3140557                                          2462/20-eC/gn                                      -83 -118  35
+AP     08:C6:B3:33:3E:20 MyTTK_24G_3E1F                                   2427/20-Ce/gn                                      -85 -118  33
+AP     3C:98:72:33:ED:2A MTSRouter_2.4GHz_010142                          2412/20-Ce/gn                                      -92 -115  23
+AP     80:26:89:6B:2E:77 MTSRouter-6B2E77                                 2412/20/gn                                         -91 -115  24
+AP     50:D4:F7:EA:4A:AF TP-Link_4AAF                                     2417/20-Ce/gn                                      -81 -119  38
+AP     B8:A3:86:B9:76:A0 HuyVamANeINET                                    2432/20/gn                                         -82 -118  36
+
+[admin@MikroTik] >

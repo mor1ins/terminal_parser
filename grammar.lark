@@ -1,0 +1,51 @@
+%import common.WORD
+%import common.NUMBER
+%import common.ESCAPED_STRING
+
+%ignore " "
+
+
+?start      : line_list
+line_list   : line [line_list]
+line        : L_SQR_BR user_name DOG configuration_name R_SQR_BR R_TRIANGLE_BR [command] NEW_LINE
+
+user_name   : WORD
+configuration_name : WORD
+
+command : SLASH command_with_scope NEW_LINE
+command_with_scope : interface_wireless_print
+
+interface_wireless_print : interface_wireless_print_command NEW_LINE interface_wireless_print_out
+interface_wireless_print_command    : INTERFACE WIRELESS PRINT
+interface_wireless_print_out        : INFO + NEW_LINE wireless_interface_list
+wireless_interface_list : wireless_interface [wireless_interface_list]
+wireless_interface : id params
+id : NUMBER
+params : param_name EQ param_value [NEW_LINE] [params]
+param_name : (WORD | NUMBER | "-") +
+param_value : mac_address | width | band | NUMBER | WORD | ESCAPED_STRING
+
+band : NUMBER WORD "-" wireless_standard_list
+width : NUMBER SLASH NUMBER "mhz-XX"
+wireless_standard_list : WIRELESS_STANDARD [SLASH wireless_standard_list]
+mac_address : MAC_ADDRESS
+
+WIRELESS_STANDARD : /[bgn]/
+INTERFACE : "interface"
+WIRELESS  : "wireless"
+PRINT     : "print"
+
+INFO : ( WORD | ":" | "-" | ",")
+
+
+EQ       : "="
+SLASH    : "/"
+L_SQR_BR : "["
+R_SQR_BR : "]"
+L_TRIANGLE_BR : "<"
+R_TRIANGLE_BR : ">"
+NEW_LINE : "\n"
+DOG      : "@"
+
+HEX_NUMBER : /[0-9A-Fa-f]/
+MAC_ADDRESS : /([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])/
